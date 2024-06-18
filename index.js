@@ -2,13 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bikeRoute = require('./routes/bike.route.js');
 const app = express();
+const cors = require('cors');
 
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // Routes
 app.use('/api/bikes', bikeRoute);
+
 
 // Mongoose Connection
 mongoose.connect('mongodb+srv://ratneshbvk2504:cqU4hUQPUNEQGI2u@bycycleapi.qdzgm6g.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BycycleAPI')
