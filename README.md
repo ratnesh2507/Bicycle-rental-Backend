@@ -55,7 +55,7 @@ To check out the Frontend of this Project, click below 👇
 
 1. Start the server:
     ```sh
-    npm start
+    npm run dev
     ```
 2. The server will run on `http://localhost:3000`.
 
