@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bikeRoute = require('./routes/bike.route.js');
 const app = express();
 const cors = require('cors');
+require('dotenv').config();
 
 // Middlewares
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use('/api/bikes', bikeRoute);
 
 
 // Mongoose Connection
-mongoose.connect('mongodb+srv://ratneshbvk2504:cqU4hUQPUNEQGI2u@bycycleapi.qdzgm6g.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BycycleAPI')
+mongoose.connect(process.env.CONNECTION_STRING)
   .then(() => {
     console.log('Database Connected!');
     app.listen(3000, () => {
