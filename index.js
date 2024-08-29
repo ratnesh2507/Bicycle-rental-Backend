@@ -4,6 +4,7 @@ const bikeRoute = require('./routes/bike.route.js');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
+port = process.env.PORT || 3000;
 
 // Middlewares
 app.use(express.json());
@@ -18,8 +19,8 @@ app.use('/api/bikes', bikeRoute);
 mongoose.connect(process.env.CONNECTION_STRING)
   .then(() => {
     console.log('Database Connected!');
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000');
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
     });
   })
   .catch((error) => {
