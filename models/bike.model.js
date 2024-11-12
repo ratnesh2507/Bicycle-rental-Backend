@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const BikeSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please enter bike name"]
+      required: [true, "Please enter bike name"],
     },
 
     model: {
@@ -15,26 +15,26 @@ const BikeSchema = mongoose.Schema(
     quantity: {
       type: Number,
       required: true,
-      default: 0
+      default: 0,
     },
 
     image: {
       type: String,
-      required: false
+      required: false,
     },
 
     available: {
       type: Boolean,
-      required: true
+      required: true,
     },
 
     rent_per_km: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
