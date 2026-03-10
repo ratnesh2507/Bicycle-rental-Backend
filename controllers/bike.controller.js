@@ -55,8 +55,8 @@ const deleteBike = async (req, res) => {
       return res.status(404).json({ message: "Bike not found" });
     }
     res.status(200).json({ message: "Bike deleted successfully" });
-  } catch (errror) {
-    res.status(500).json({ message: errror.message });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 

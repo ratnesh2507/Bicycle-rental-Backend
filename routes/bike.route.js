@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
-
 const {
   createBike,
   getBikes,
   getBike,
   updatedBike,
   deleteBike,
-} = require("../controllers/bike.controller.js");
+} = require("../controllers/bike.controller");
+const { protect } = require("../middleware/auth.middleware");
 
-router.post("/", createBike);
+// Public — anyone can browse bikes
 router.get("/", getBikes);
 router.get("/:id", getBike);
-router.put("/:id", updatedBike);
-router.delete("/:id", deleteBike);
+
+// Protected — must be logged in to create, edit, delete
+router.post("/", protect, createBike);
+router.put("/:id", protect, updatedBike);
+router.delete("/:id", protect, deleteBike);
 
 module.exports = router;

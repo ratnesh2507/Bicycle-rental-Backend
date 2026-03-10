@@ -6,28 +6,23 @@ const BikeSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter bike name"],
     },
-
     model: {
       type: String,
       required: true,
     },
-
     quantity: {
       type: Number,
       required: true,
       default: 0,
     },
-
     image: {
       type: String,
       required: false,
     },
-
     available: {
       type: Boolean,
       required: true,
     },
-
     rent_per_km: {
       type: Number,
       required: true,
@@ -35,7 +30,9 @@ const BikeSchema = mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+    // No collection override needed — Mongoose pluralises "Bike" → "bikes"
+    // which matches your Atlas collection name exactly
+  },
 );
 
 const Bike = mongoose.model("Bike", BikeSchema);
